@@ -5,15 +5,6 @@ Integrantes:
 * Agustín Godoy
 godoyagustinnahuel93@gmail.com
 godoyagustin64
-* Benjamin Nuñez 
-Benjaminnunez921@gmail.com 
-benjanun
-* Ana María Iceta
-anaiceta@gmail.com
-Anaiceta
-* Laura Hoyos
-laurahoyoslunghi@gmail.com
-laurahoyoslunghi
 * Miguel Gonzalez
 miguel.2000.g@hotmail.com
 KaybaMgk
