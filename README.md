@@ -5,6 +5,9 @@ Integrantes:
 * Agustín Godoy
 godoyagustinnahuel93@gmail.com
 godoyagustin64
+* Laura Hoyos
+laurahoyoslunghi@gmail.com
+laurahoyoslunghi
 * Miguel Gonzalez
 miguel.2000.g@hotmail.com
 KaybaMgk
