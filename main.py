@@ -1,8 +1,9 @@
 # importamos la conexion a la base de datos
-from conexion import BDLegislatura
+from conexion import db_leyes
 
 # importamos las funciones necesarias para el CRUD
-import funciones
+from conexion import funciones
+
 
 # definimos el menu principal con las opciones del CRUD y la opcion de salir del sistema
 
@@ -35,7 +36,8 @@ def menuPrincipal():
 
 
 def ejecutarOpcion(opcion):
-    bdlegislatura = BDLegislatura()
+
+    bdlegislatura = db_leyes()
 # opcion R del CRUD: READ(leer)
     if opcion == 1:
         try:
