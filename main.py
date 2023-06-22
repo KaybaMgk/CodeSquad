@@ -36,12 +36,12 @@ def menuPrincipal():
 
 
 def ejecutarOpcion(opcion):
+    db_leyes = db_leyes()
 
-    bdlegislatura = db_leyes()
 # opcion R del CRUD: READ(leer)
     if opcion == 1:
         try:
-            leyes = bdlegislatura.listarLeyes()
+            leyes = db_leyes.listarLeyes()
             if len(leyes) > 0:
                 funciones.listarLeyes(leyes)
             else:
@@ -52,17 +52,17 @@ def ejecutarOpcion(opcion):
     elif opcion == 2:
         ley = funciones.pedirDatosLey()
         try:
-            bdlegislatura.registrarLey(ley)
+            db_leyes.registrarLey(ley)
         except:
             print("Ocurrió un error")
 # opcion U del CRUD: UPDATE(modificar)
     elif opcion == 3:
         try:
-            ley = bdlegislatura.listarLeyes()
+            ley = db_leyes.listarLeyes()
             if len(ley) > 0:
                 ley = funciones.pedirDatosActualizacion(ley)
                 if ley:
-                    bdlegislatura.actualizarLey(ley)
+                    db_leyes.actualizarLey(ley)
                 else:
                     print("Número de ley a actualizar no encontrado\n")
             else:
@@ -72,11 +72,11 @@ def ejecutarOpcion(opcion):
 # opcion D del CRUD: DELETE(eliminar)
     elif opcion == 4:
         try:
-            ley = bdlegislatura.listarLeyes()
+            ley = db_leyes.listarLeyes()
             if len(ley) > 0:
                 numeroEliminar = funciones.pedirDatosEliminacion(ley)
                 if not (numeroEliminar == ""):
-                    bdlegislatura.eliminarLey(numeroEliminar)
+                    db_leyes.eliminarLey(numeroEliminar)
                 else:
                     print("Número de ley no encontrado\n")
             else:
