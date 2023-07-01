@@ -12,7 +12,7 @@ class db_leyes:
                 port=3307,
                 user="root",
                 password="Ismael07",
-                db="legislacion_bd",
+                db="proyecto",
             )
         except Error as ex:
             print("Error al intentar la conexión: {0}".format(ex))
@@ -21,20 +21,20 @@ class db_leyes:
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                cursor.execute("SELECT * FROM ley ORDER BY nro_leyes ASC")
+                cursor.execute("SELECT * FROM leyes ORDER BY nro_leyes ASC")
                 resultados = cursor.fetchall()
                 return resultados
             except mysql.connector.Error as ex:
                 print("Error al intentar la conexión: {0}".format(ex))
 
-    def registrarLey(self, ley):
+    def registrarLey(self, leyes):
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = "INSERT INTO ley (id_leyes, nro_leyes, fecha, descripcion, categoria, jurisdiccion, or_legislativo, palabra_clave) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}','{5}', '{6}', '{7}')"
+                sql = "INSERT INTO leyes (id_leyes, nro_leyes, fecha, descripcion, categoria, jurisdiccion, or_legislativo, palabra_clave) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}','{5}', '{6}', '{7}')"
                 cursor.execute(
                     sql.format(
-                        ley[0], ley[1], ley[2], ley[3], ley[4], ley[5], ley[6], ley[7]
+                        leyes[0], leyes[1], leyes[2], leyes[3], leyes[4], leyes[5], leyes[6], leyes[7]
                     )
                 )
                 self.conexion.commit()
@@ -42,14 +42,14 @@ class db_leyes:
             except mysql.connector.Error as ex:
                 print("Error al intentar la conexión: {0}".format(ex))
 
-    def actualizarLey(self, ley):
+    def actualizarLey(self, leyes):
         if self.conexion.is_connected():
             try:
-                cursor = ley.conexion.cursor()
-                sql = "UPDATE ley SET fecha = '{2}',, descripcion = '{3}', categoria = '{4}', jurisdiccion = '{5}', or_legislativo = '{6}', palabra_clave = '{7}' WHERE id_leyes = '{0}'"
+                cursor = leyes.conexion.cursor()
+                sql = "UPDATE leyes SET fecha = '{2}',, descripcion = '{3}', categoria = '{4}', jurisdiccion = '{5}', or_legislativo = '{6}', palabra_clave = '{7}' WHERE id_leyes = '{0}'"
                 cursor.execute(
                     sql.format(
-                        ley[0], ley[1], ley[2], ley[3], ley[4], ley[5], ley[6], ley[7]
+                        leyes[0], leyes[1], leyes[2], leyes[3], leyes[4], leyes[5], leyes[6], leyes[7]
                     )
                 )
                 self.conexion.commit()
@@ -61,7 +61,7 @@ class db_leyes:
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = "DELETE FROM ley WHERE id_leyes = '{0}'"
+                sql = "DELETE FROM leyes WHERE id_leyes = '{0}'"
                 cursor.execute(sql.format(numeroEliminar))
                 self.conexion.commit()
                 print("Ley eliminada!\n")
