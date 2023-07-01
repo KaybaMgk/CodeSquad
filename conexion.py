@@ -1,8 +1,8 @@
+# Importamos los conectores a MySQL
 import mysql.connector
 from mysql.connector import Error
 
 # creando clase
-
 
 class db_leyes:
     def __init__(self):
@@ -11,7 +11,7 @@ class db_leyes:
                 host="localhost",
                 port=3307,
                 user="root",
-                password="Ismael07",
+                password="",
                 db="proyecto",
             )
         except Error as ex:
